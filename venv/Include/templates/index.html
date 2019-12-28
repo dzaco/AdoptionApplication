@@ -1,42 +1,83 @@
 {%extends 'base.html' %}
 
-{% block title %}Formularz{% endblock %}
+{% block title %}Formularz adopcyjny!{% endblock %}
+{% block header %}Formularz adopcyjny!{% endblock %}
 
 {% block body %}
 
 <form>
 
-    <div class="card text-center">
+<div id="pyt1" class="card text-center">
   <div class="card-header">
     Pytanie 1
   </div>
   <div class="card-body">
     <h5 class="card-title">Czy jesteś osobą aktywną?</h5>
 
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="pyt" id="1" value="kanapowiec" checked>
-      <label class="form-check-label" for="1">
-        kanapowiec
-      </label>
-    </div>
+    <div class="text-left mx-auto" style="width: 200px;">
+         <div class="form-check">
+          <input class="form-check-input" type="radio" name="pyt" id="1" value="kanapowiec" checked>
+          <label class="form-check-label" for="1">
+            kanapowiec
+          </label>
+        </div>
 
-      <div class="form-check">
-      <input class="form-check-input" type="radio" name="pyt" id="2" value="częściowo aktywną" >
-      <label class="form-check-label" for="2">
-        częściowo aktywną
-      </label>
-    </div>
+         <div class="form-check">
+          <input class="form-check-input" type="radio" name="pyt" id="2" value="częściowo aktywną" >
+          <label class="form-check-label" for="2">
+            częściowo aktywną
+          </label>
+        </div>
 
-      <div class="form-check">
-      <input class="form-check-input" type="radio" name="pyt" id="3" value="bardzo aktywną" >
-      <label class="form-check-label" for="3">
-        bardzo aktywną
-      </label>
+         <div class="form-check">
+          <input class="form-check-input" type="radio" name="pyt" id="3" value="bardzo aktywną" >
+          <label class="form-check-label" for="3">
+            bardzo aktywną
+          </label>
+        </div>
     </div>
 
   </div>
   <div class="card-footer text-muted">
-    <a href="#" class="btn btn-primary">Dalej!</a>
+    <a id="btn1" class="btn btn-primary" >Dalej!</a>
+  </div>
+</div>
+
+
+
+<div id="pyt2" class="card text-center">
+  <div class="card-header">
+    Pytanie 2
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Czy jesteś osobą aktywną?</h5>
+
+    <div class="text-left mx-auto" style="width: 200px;">
+         <div class="form-check">
+          <input class="form-check-input" type="radio" name="pyt2" id="2_1" value="kanapowiec" checked>
+          <label class="form-check-label" for="2_1">
+            kanapowiec
+          </label>
+        </div>
+
+         <div class="form-check">
+          <input class="form-check-input" type="radio" name="pyt2" id="2_2" value="częściowo aktywną" >
+          <label class="form-check-label" for="2_2">
+            częściowo aktywną
+          </label>
+        </div>
+
+         <div class="form-check">
+          <input class="form-check-input" type="radio" name="pyt2" id="2_3" value="bardzo aktywną" >
+          <label class="form-check-label" for="2_3">
+            bardzo aktywną
+          </label>
+        </div>
+    </div>
+
+  </div>
+  <div class="card-footer text-muted">
+    <a id="btn2" class="btn btn-primary" >Dalej!</a>
   </div>
 </div>
 
