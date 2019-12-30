@@ -1,8 +1,6 @@
 from flask import Blueprint , render_template, request
 main = Blueprint('main' , __name__)
 
-
-
 @main.route('/')
 def index():
     return render_template('index.html')
@@ -10,6 +8,7 @@ def index():
 @main.route('/adopt', methods = ['POST'])
 def adopt():
     data = request.form
+    data = data.values()
     print(data)
     return render_template('adopt.html', data=data)
 
