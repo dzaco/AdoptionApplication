@@ -5,7 +5,7 @@
 
 {% block body %}
 
-<form>
+<form action="{{ url_for('main.adopt') }}" method="post">
 
     <div id="pyt1" class="card text-center input-group">
       <div class="card-header">
@@ -17,21 +17,21 @@
         <div class="text-left mx-auto" style="width: 200px;">
 
              <div class="form-check">
-              <input class="form-check-input" type="radio" name="pyt" id="1_1" value="Kanapowiec" checked>
+              <input class="form-check-input" type="radio" name="pyt1" id="1_1" value="1" checked>
               <label class="form-check-label" for="1_1">
                 Kanapowiec
               </label>
             </div>
 
              <div class="form-check">
-              <input class="form-check-input" type="radio" name="pyt" id="1_2" value="Częściowo aktywną" >
+              <input class="form-check-input" type="radio" name="pyt1" id="1_2" value="2" >
               <label class="form-check-label" for="1_2">
                 Częściowo aktywną
               </label>
             </div>
 
              <div class="form-check">
-              <input class="form-check-input" type="radio" name="pyt" id="1_3" value="Bardzo aktywną" >
+              <input class="form-check-input" type="radio" name="pyt1" id="1_3" value="3" >
               <label class="form-check-label" for="1_3">
                 Bardzo aktywną
               </label>
@@ -55,14 +55,14 @@
         <div class="text-left mx-auto" style="width: 200px;">
 
              <div class="form-check">
-              <input class="form-check-input" type="radio" name="pyt2" id="2_1" value="Tak" checked>
+              <input class="form-check-input" type="radio" name="pyt2" id="2_1" value="1" checked>
               <label class="form-check-label" for="2_1">
                 Tak
               </label>
             </div>
 
              <div class="form-check">
-              <input class="form-check-input" type="radio" name="pyt2" id="2_2" value="Nie" >
+              <input class="form-check-input" type="radio" name="pyt2" id="2_2" value="2" >
               <label class="form-check-label" for="2_2">
                 Nie
               </label>
@@ -86,21 +86,21 @@
         <div class="text-left mx-auto" style="width: 200px;">
 
              <div class="form-check">
-              <input class="form-check-input" type="radio" name="pyt3" id="3_1" value="Więcej niż 6 godzin" checked>
+              <input class="form-check-input" type="radio" name="pyt3" id="3_1" value="1" checked>
               <label class="form-check-label" for="3_1">
                 Więcej niż 6 godzin
               </label>
             </div>
 
              <div class="form-check">
-              <input class="form-check-input" type="radio" name="pyt3" id="3_2" value="Mniej niż 6 godzin" >
+              <input class="form-check-input" type="radio" name="pyt3" id="3_2" value="2" >
               <label class="form-check-label" for="3_2">
                 Mniej niż 6 godzin
               </label>
             </div>
 
              <div class="form-check">
-              <input class="form-check-input" type="radio" name="pyt3" id="3_3" value="Ktoś zawsze jest w domu" >
+              <input class="form-check-input" type="radio" name="pyt3" id="3_3" value="3" >
               <label class="form-check-label" for="3_3">
                 Ktoś zawsze jest w domu
               </label>
@@ -124,14 +124,14 @@
     <div class="text-left mx-auto" style="width: 200px;">
 
          <div class="form-check">
-          <input class="form-check-input" type="radio" name="pyt4" id="4_1" value="Tak, wymagam włosów" checked>
+          <input class="form-check-input" type="radio" name="pyt4" id="4_1" value="1" checked>
           <label class="form-check-label" for="4_1">
             Tak, wymagam włosów
           </label>
         </div>
 
          <div class="form-check">
-          <input class="form-check-input" type="radio" name="pyt4" id="4_2" value="Nie, może być sierść" >
+          <input class="form-check-input" type="radio" name="pyt4" id="4_2" value="2" >
           <label class="form-check-label" for="4_2">
             Nie, może być sierść
           </label>
@@ -156,21 +156,21 @@
         <div class="text-left mx-auto" style="width: 200px;">
 
              <div class="form-check">
-              <input class="form-check-input" type="radio" name="pyt5" id="5_1" value="Duże" checked>
+              <input class="form-check-input" type="radio" name="pyt5" id="5_1" value="1" checked>
               <label class="form-check-label" for="5_1">
                 Duże
               </label>
             </div>
 
              <div class="form-check">
-              <input class="form-check-input" type="radio" name="pyt5" id="5_2" value="Średnie" >
+              <input class="form-check-input" type="radio" name="pyt5" id="5_2" value="2" >
               <label class="form-check-label" for="5_2">
                 Średnie
               </label>
             </div>
 
              <div class="form-check">
-              <input class="form-check-input" type="radio" name="pyt5" id="5_3" value="Małe" >
+              <input class="form-check-input" type="radio" name="pyt5" id="5_3" value="3" >
               <label class="form-check-label" for="5_3">
                 Małe
               </label>
@@ -194,21 +194,21 @@
         <div class="text-left mx-auto" style="width: 200px;">
 
              <div class="form-check">
-              <input class="form-check-input" type="radio" name="pyt6" id="6_1" value="Do 100zł" checked>
+              <input class="form-check-input" type="radio" name="pyt6" id="6_1" value="1" checked>
               <label class="form-check-label" for="6_1">
                 Do 100zł
               </label>
             </div>
 
              <div class="form-check">
-              <input class="form-check-input" type="radio" name="pyt6" id="6_2" value="Do 200zł" >
+              <input class="form-check-input" type="radio" name="pyt6" id="6_2" value="2" >
               <label class="form-check-label" for="6_2">
                 Do 200zł
               </label>
             </div>
 
              <div class="form-check">
-              <input class="form-check-input" type="radio" name="pyt6" id="6_3" value="Do 400zł" >
+              <input class="form-check-input" type="radio" name="pyt6" id="6_3" value="3" >
               <label class="form-check-label" for="6_3">
                 Do 400zł
               </label>
@@ -232,21 +232,21 @@
         <div class="text-left mx-auto" style="width: 210px;">
 
              <div class="form-check">
-              <input class="form-check-input" type="radio" name="pyt7" id="7_1" value="Małe mieszkanie (<60m2)" checked>
+              <input class="form-check-input" type="radio" name="pyt7" id="7_1" value="1" checked>
               <label class="form-check-label" for="7_1">
                 Małe mieszkanie (<60m2)
               </label>
             </div>
 
              <div class="form-check">
-              <input class="form-check-input" type="radio" name="pyt7" id="7_2" value="Duże mieszkanie (>60m2)" >
+              <input class="form-check-input" type="radio" name="pyt7" id="7_2" value="2" >
               <label class="form-check-label" for="7_2">
                 Duże mieszkanie (>60m2)
               </label>
             </div>
 
              <div class="form-check">
-              <input class="form-check-input" type="radio" name="pyt7" id="7_3" value="Dom z ogrodem" >
+              <input class="form-check-input" type="radio" name="pyt7" id="7_3" value="3" >
               <label class="form-check-label" for="7_3">
                 Dom z ogrodem
               </label>
@@ -270,21 +270,21 @@
         <div class="text-left mx-auto" style="width: 200px;">
 
              <div class="form-check">
-              <input class="form-check-input" type="radio" name="pyt8" id="8_1" value="1-10 lat" checked>
+              <input class="form-check-input" type="radio" name="pyt8" id="8_1" value="1" checked>
               <label class="form-check-label" for="8_1">
                 1-10 lat
               </label>
             </div>
 
              <div class="form-check">
-              <input class="form-check-input" type="radio" name="pyt8" id="8_2" value="10-20 lat" >
+              <input class="form-check-input" type="radio" name="pyt8" id="8_2" value="2" >
               <label class="form-check-label" for="8_2">
                 10-20 lat"
               </label>
             </div>
 
              <div class="form-check">
-              <input class="form-check-input" type="radio" name="pyt8" id="8_3" value="20+ lat" >
+              <input class="form-check-input" type="radio" name="pyt8" id="8_3" value="3" >
               <label class="form-check-label" for="8_3">
                 20+ lat
               </label>
@@ -297,6 +297,7 @@
       </div>
     </div>
 
+    <button type="submit" class="btn btn-lg btn-primary btn-block">Zatwierdź!</button>
 </form>
 
 {% endblock %}

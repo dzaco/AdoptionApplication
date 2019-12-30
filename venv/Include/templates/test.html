@@ -1,0 +1,71 @@
+{%extends 'base.html' %}
+
+{% block title %}Formularz adopcyjny!{% endblock %}
+{% block header %}Formularz adopcyjny!{% endblock %}
+
+{% block body %}
+
+  <form action="" id="form">
+  </form>
+
+  <script>
+  const QUESTIONS = [
+  {
+    question: 'Czy jesteś osobą aktywną?',
+    answers: [
+      'Kanapowiec',
+      'Częściowo aktywną',
+      'Bardzo aktywną'
+    ]
+  },
+  {
+    question: 'Pytanie 2',
+    answers: [
+      'Odpowiedź 1',
+      'Odpowiedź 2',
+      'Odpowiedź 3'
+    ]
+  },
+  {
+    question: 'Pytanie 3',
+    answers: [
+      'Odpowiedź 1',
+      'Odpowiedź 2',
+      'Odpowiedź 3'
+    ]
+  }
+]
+
+let index = 0
+function renderQuestion() {
+  const form = document.getElementById('form');
+  form.innerHTML = "";
+  let h3Node = document.createElement('h3')
+  const h3TextNode = document.createTextNode(QUESTIONS[index].question)
+  h3Node.appendChild(h3TextNode);
+  form.appendChild(h3Node)
+  QUESTIONS[index].answers.map(answer => {
+    let pNode = document.createElement('input');
+    pNode.setAttribute('type', 'radio');
+    pNode.setAttribute('value', answer);
+    const pTextNode = document.createTextNode(answer)
+    pNode.appendChild(pTextNode)
+    form.appendChild(pNode)
+  })
+  let buttonNode = document.createElement('button');
+  const buttonTextNode = document.createTextNode('dalej');
+  buttonNode.appendChild(buttonTextNode);
+  form.appendChild(buttonNode)
+
+  buttonNode.addEventListener ("click", function(e) {
+    e.preventDefault();
+    index++
+    if (!QUESTIONS[index]) {return; }
+    renderQuestion()
+  });
+}
+    window.onload = () => renderQuestion()
+
+  </script>
+
+{% endblock %}
