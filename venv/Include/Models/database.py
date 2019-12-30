@@ -34,13 +34,28 @@ def getAll():
     return result
 
 
-def addNewAnimal(animal_id, name, breed, features, description, picture_path):
+def addNewAnimal(animal_id, name, breed, features, description, picture_path, score):
     database = db.connect('animals.db')
     cursor = database.cursor()
-    cursor.execute("INSERT INTO animals VALUES (?, ?, ?, ?, ?, ?)",
-                   (animal_id, name, breed, features, description, picture_path))
+    cursor.execute("INSERT INTO animals VALUES (?, ?, ?, ?, ?, ?, ?)",
+                   (animal_id, name, breed, features, description, picture_path, score))
     database.commit()
     database.close()
+
+def copyDB():
+    database = db.connect('animals.db')
+    cursor = database.cursor()
+    cursor.execute('''DELETE FROM copy''')
+    database.commit()
+    cursor.execute('''INSERT INTO copy (id, name, breed, features, description, picturePath, score)
+     SELECT id, name, breed, features, description, picturePath, score FROM animals''')
+    database.commit()
+    cursor.close()
+    database.close()
+
+
+
+
 
 
 # database = db.connect('animals.db')
@@ -50,14 +65,14 @@ def addNewAnimal(animal_id, name, breed, features, description, picture_path):
 # database.commit()
 # database.close()
 
-#addNewAnimal(1, 'dlugosz', 'jamnik', 'ACTIVE:1;KIDS:1;TIMEALONE:3;OTHERANIMS:1|SIZE:1;COST:1;HOUSESIZE:1;LIFELENGHT:2',
+#addNewAnimal(1, 'dlugosz', 'jamnik', 'ACTIVE:1;KIDS:1;TIMEALONE:3;ALLERGIC:1|SIZE:1;COST:1;HOUSESIZE:1;LIFELENGHT:2',
 #             'typical jamnik', 'jamnik.jpg')
 
 # SELECT * FROM animals WHERE features LIKE '%ACTIVE:1%' OR '%ACTIVE:2%'
 
 # getAll()
 
-# ('ACTIVE:x;KIDS:x;TIMEALONE:x;OTHERANIMS:x|SIZE:x;COST:x;HOUSESIZE:x;LIFELENGHT:x')
+# ('ACTIVE:x;KIDS:x;TIMEALONE:x;ALERGIC:x|SIZE:x;COST:x;HOUSESIZE:x;LIFELENGHT:x')
 
 # det
 # aktywny?
@@ -66,8 +81,8 @@ def addNewAnimal(animal_id, name, breed, features, description, picture_path):
 # 0 - nie moze z dziecmi,1 - moze z dziecmi
 # dlugo sam w domu?
 # 1 - ktos musi byc ciagle w domu , 2 - <6h ,3 >6h
-# inne zwierze?
-# 0 - nie moze (agresywny), 1 - na luzie moze z innymi
+# Alergia?
+# 0 - ma wlosy, 1 - ma siersc
 #
 # ndet
 # romiar?
