@@ -10,7 +10,7 @@ def adopt():
     data = request.form
     data = data.values()
     animals = manageAnimals(data)
-    print(data)
+    print(animals)
     return render_template('adopt.html', animals=animals)
 
 @main.route('/test')

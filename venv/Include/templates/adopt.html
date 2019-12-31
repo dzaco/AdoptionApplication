@@ -4,27 +4,23 @@
 
 {% block body %}
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Imie</th>
-      <th scope="col">Rasa</th>
-      <th scope="col">Cechy</th>
-      <th scope="col">Opis</th>
-      <th scope="col">Zdjecie</th>
-      <th scope="col">Punkty</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for animal in animals %}
-    <tr>
-      {% for col in animal %}
-        <td>{{col}}</td>
-      {% endfor %}
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-2">
+  {% for animal in animals %}
+  <div class="card mb-4" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{{ url_for('static' , filename='img/dog.jpg') }}" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ animal[1] }} - {{ animal[2] }}</h5>
+        <p class="card-text">{{ animal[4] }}</p>
+        <p class="card-text"><small class="text-muted">Poziom dopasowania: {{ animal[6] }}</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+  {% endfor %}
+</div>
 
 {% endblock %}
