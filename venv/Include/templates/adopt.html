@@ -4,8 +4,27 @@
 
 {% block body %}
 
-{% for d in data %}
-    <p>Odp {{ d }}</p>
-{% endfor %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Imie</th>
+      <th scope="col">Rasa</th>
+      <th scope="col">Cechy</th>
+      <th scope="col">Opis</th>
+      <th scope="col">Zdjecie</th>
+      <th scope="col">Punkty</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for animal in animals %}
+    <tr>
+      {% for col in animal %}
+        <td>{{col}}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
 {% endblock %}

@@ -11,7 +11,7 @@ def adopt():
     data = data.values()
     animals = manageAnimals(data)
     print(data)
-    return render_template('adopt.html', data=data)
+    return render_template('adopt.html', animals=animals)
 
 @main.route('/test')
 def test():
