@@ -9,16 +9,18 @@
   <div class="card mb-4" style="max-width: 540px;">
   <div class="row no-gutters">
     <div class="col-md-4">
-      <img src="{{ url_for('static' , filename='img/dog.jpg') }}" class="card-img" alt="...">
+      <img src="static/{{ animal[5] }}" class="card-img" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">{{ animal[1] }} - {{ animal[2] }}</h5>
         <p class="card-text">{{ animal[4] }}</p>
-        <p class="card-text"><small class="text-muted">Poziom dopasowania: {{ animal[6] }}</small></p>
       </div>
     </div>
   </div>
+    <p class="card-footer">
+          <span class="badge badge-info">Poziom dopasowania: <span class="badge badge-light">{{ animal[6] }}</span></span>
+        </p>
 </div>
   {% endfor %}
 </div>
