@@ -3,24 +3,23 @@
 {% block title %}Adoptuj jednego z nich!{% endblock %}
 
 {% block body %}
-
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2">
   {% for animal in animals %}
-  <div class="card mb-4" style="max-width: 540px;">
+  <div class="card mb-4" style="max-width: 540px; max-height: 300px;">
   <div class="row no-gutters">
     <div class="col-md-4">
       <img src="static/{{ animal[5] }}" class="card-img" alt="...">
     </div>
     <div class="col-md-8">
-      <div class="card-body">
+      <div class="card-body overflow-auto">
         <h5 class="card-title">{{ animal[1] }} - {{ animal[2] }}</h5>
         <p class="card-text">{{ animal[4] }}</p>
       </div>
     </div>
   </div>
     <p class="card-footer">
-          <span class="badge badge-info">Poziom dopasowania: <span class="badge badge-light">{{ animal[6] }}</span></span>
-        </p>
+        <span class="badge badge-info mx-auto">Poziom dopasowania: <span class="badge badge-light">{{ animal[6] }}</span></span>
+    </p>
 </div>
   {% endfor %}
 </div>
