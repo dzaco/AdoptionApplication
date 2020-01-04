@@ -18,6 +18,10 @@ def test():
 
 # ACTIVE:x;KIDS:x;TIMEALONE:x;OTHERANIMS:x|SIZE:x;COST:x;HOUSESIZE:x;LIFELENGHT:x
 
+
+MAX_POINTS = 4
+
+
 def activeCommand(answer):
     switcher = {
         1: "DELETE FROM copy WHERE features LIKE '%ACTIVE:2%' OR '%ACTIVE:3%'",
@@ -94,15 +98,58 @@ def manageAnimals(data):
     database.command(kidsCommand(int(data[1])))
     database.command(timeAloneCommand(int(data[2])))
     database.command(allergicCommand(int(data[3])))
-    database.command(sizeCommand(int(data[4])))
-    database.command(costCommand(int(data[5])))
-    database.command(houseSizeCommand(int(data[6])))
-    database.command(lifeLenghtCommand(int(data[7])))
+
+    # size
+    if int(data[4]) == 1:
+        database.command("UPDATE copy SET score = score + 2 WHERE features LIKE '%|SIZE:3%'")
+        database.command("UPDATE copy SET score = score + 1 WHERE features LIKE '%|SIZE:2%'")
+    if int(data[4]) == 2:
+        database.command("UPDATE copy SET score = score + 2 WHERE features LIKE '%|SIZE:2%'")
+        database.command("UPDATE copy SET score = score + 1 WHERE features LIKE '%|SIZE:3%'")
+        database.command("UPDATE copy SET score = score + 1 WHERE features LIKE '%|SIZE:1%'")
+    if int(data[4]) == 3:
+        database.command("UPDATE copy SET score = score + 2 WHERE features LIKE '%|SIZE:1%'")
+        database.command("UPDATE copy SET score = score + 1 WHERE features LIKE '%|SIZE:2%'")
+
+    # cost
+    if int(data[5]) == 1:
+        database.command("UPDATE copy SET score = score + 2 WHERE features LIKE '%COST:1%'")
+    if int(data[5]) == 2:
+        database.command("UPDATE copy SET score = score + 2 WHERE features LIKE '%COST:1%'")
+        database.command("UPDATE copy SET score = score + 2 WHERE features LIKE '%COST:2%'")
+    if int(data[5]) == 3:
+        database.command("UPDATE copy SET score = score + 2 WHERE features LIKE '%COST:1%'")
+        database.command("UPDATE copy SET score = score + 2 WHERE features LIKE '%COST:2%'")
+        database.command("UPDATE copy SET score = score + 2 WHERE features LIKE '%COST:3%'")
+
+    # house size
+    if int(data[6]) == 1:
+        database.command("UPDATE copy SET score = score + 2 WHERE features LIKE '%HOUSESIZE:1%'")
+    if int(data[6]) == 2:
+        database.command("UPDATE copy SET score = score + 2 WHERE features LIKE '%HOUSESIZE:1%'")
+        database.command("UPDATE copy SET score = score + 2 WHERE features LIKE '%HOUSESIZE:2%'")
+    if int(data[6]) == 3:
+        database.command("UPDATE copy SET score = score + 2 WHERE features LIKE '%HOUSESIZE:1%'")
+        database.command("UPDATE copy SET score = score + 2 WHERE features LIKE '%HOUSESIZE:2%'")
+        database.command("UPDATE copy SET score = score + 2 WHERE features LIKE '%HOUSESIZE:3%'")
+
+    # life lenght
+    if int(data[7]) == 1:
+        database.command("UPDATE copy SET score = score + 2 WHERE features LIKE '%LIFELENGHT:1%'")
+    if int(data[7]) == 2:
+        database.command("UPDATE copy SET score = score + 2 WHERE features LIKE '%LIFELENGHT:2%'")
+        database.command("UPDATE copy SET score = score + 1 WHERE features LIKE '%LIFELENGHT:1%'")
+    if int(data[7]) == 3:
+        database.command("UPDATE copy SET score = score + 2 WHERE features LIKE '%LIFELENGHT:3%'")
+        database.command("UPDATE copy SET score = score + 1 WHERE features LIKE '%LIFELENGHT:2%'")
+
+    database.command('UPDATE copy SET score = (score * 100) / 8')
 
     d = db.connect('animals.db')
     cur = d.cursor()
     cur.execute('''SELECT * FROM copy ORDER BY score DESC''')
     results = cur.fetchall()
+    print(results)
     d.close()
 
     return results
