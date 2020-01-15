@@ -7,7 +7,7 @@
   {% for animal in animals %}
   <div class="card mb-4" style="max-width: 540px; max-height: 330px;">
   <div class="row no-gutters">
-    <div class="col-md-4">
+    <div class="col-md-4 col-12">
       <img src="static/{{ animal[5] }}" class="card-img img-fluid" alt="...">
     </div>
     <div class="col-md-8">
@@ -18,7 +18,7 @@
     </div>
   </div>
     <p class="card-footer">
-        <span class="badge badge-info mx-auto">Poziom dopasowania : &nbsp; <span class="badge badge-light">{{ animal[6] }}</span></span>
+        <span class="badge badge-info mx-auto">Poziom dopasowania : &nbsp; <span class="badge badge-light">{{ animal[6] }}%</span></span>
         <button type="button" class="btn btn-outline-info btn-sm float-right"data-toggle="modal" data-target="#myModal">Adoptuj!</button>
 
 

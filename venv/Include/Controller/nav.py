@@ -12,9 +12,7 @@ def adopt():
     animals = manageAnimals(data)
     return render_template('adopt.html', animals=animals)
 
-@main.route('/test')
-def test():
-    return render_template('test.html')
+
 
 # ACTIVE:x;KIDS:x;TIMEALONE:x;OTHERANIMS:x|SIZE:x;COST:x;HOUSESIZE:x;LIFELENGHT:x
 
